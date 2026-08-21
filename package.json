@@ -1,0 +1,9 @@
+{
+  "name": "tagalog-pronouns-guide",
+  "version": "1.0.0",
+  "private": true,
+  "description": "An interactive guide to Tagalog pronouns, respectful speech, and verb focus.",
+  "scripts": {
+    "test": "node --check app.js && node tests/smoke.test.js"
+  }
+}
