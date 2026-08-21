@@ -1,8 +1,8 @@
 # Tukoy — Tagalog Pronouns & Focus
 
-Tukoy is a dependency-free, interactive guide to Tagalog pronouns, respectful
-speech, aspect, and the focus system. It is designed to publish directly with
-GitHub Pages.
+Tukoy is a dependency-free, interactive course on Tagalog pronouns,
+respectful speech, aspect, word order, verb families, and the focus system. It
+is designed to publish directly with GitHub Pages.
 
 ## Lessons included
 
@@ -16,7 +16,8 @@ GitHub Pages.
   message, then see each choice reshape the same buying scene.
 - Build completed, ongoing, and contemplated forms in common verb families.
 - Follow predicate-first word order while placing pronouns and particles.
-- Check understanding with a twelve-question practice round.
+- Work through a four-level learning path and a ten-prompt sentence studio.
+- Check understanding with a twenty-question cumulative practice round.
 
 The interactive single-choice controls support arrow, Home, and End keys, and
 the lesson navigation remains available on small screens.

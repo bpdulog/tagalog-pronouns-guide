@@ -112,6 +112,69 @@ const focusData = {
   }
 };
 
+const studioDrills = [
+  {
+    tag: "Focus choice", prompt: "You are simply reporting Ana’s activity. Which clause is the most direct starting point?",
+    context: "Keep Ana in actor focus; fish is the non-focused object.",
+    options: ["Bumili si Ana ng isda.", "Binili ni Ana ang isda.", "Ipinambili ni Ana ng isda ang pera."], answer: 0,
+    explanation: "Bumili puts the actor in focus, so si Ana is the focused participant and fish stays in an ng phrase."
+  },
+  {
+    tag: "Focus choice", prompt: "The listener already knows which fish you mean. You want to say that you bought it.",
+    context: "Make the specific fish the focused participant.",
+    options: ["Bumili ako ng isda.", "Binili ko ang isda.", "Bumili ko ang isda."], answer: 1,
+    explanation: "Object focus uses binili; the specific fish is marked ang and the actor shifts from ako to ko."
+  },
+  {
+    tag: "Aspect", prompt: "Choose the contemplated actor-focus form of kain for “I will eat.”",
+    context: "The -um- family drops the infix and repeats the first consonant-vowel in contemplated forms.",
+    options: ["Kumakain ako.", "Kakain ako.", "Kinain ko ang pagkain."], answer: 1,
+    explanation: "Kakain is contemplated actor focus. Kumakain is ongoing; kinain is completed object focus."
+  },
+  {
+    tag: "Verb family", prompt: "You will cook food for Ana. Which benefactive pattern matches that goal?",
+    context: "The beneficiary—not the food—is the focused participant in an ipag- pattern.",
+    options: ["Magluluto ako ng ulam si Ana.", "Ipagluluto ko si Ana ng ulam.", "Nagluluto si Ana ng ulam ko."], answer: 1,
+    explanation: "Ipagluluto is contemplated benefactive focus. Ko is the non-focused actor; si Ana is the beneficiary in focus."
+  },
+  {
+    tag: "Pronoun role", prompt: "You are inviting the person you are speaking to: “We will leave.”",
+    context: "The listener is included in “we.”",
+    options: ["Aalis kami.", "Aalis tayo.", "Aalis sila."], answer: 1,
+    explanation: "Tayo includes the listener. Kami means “we, but not you.”"
+  },
+  {
+    tag: "Order & negation", prompt: "You have not bought fish yet. Which actor-focus clause is natural?",
+    context: "Place the negator first and keep the short focused pronoun near the front.",
+    options: ["Hindi pa ako bumili ng isda.", "Hindi bumili ako pa ng isda.", "Ako hindi pa bumili ng isda."], answer: 0,
+    explanation: "Hindi pa ako bumili ng isda keeps the negator and particles at the front, followed by the short pronoun."
+  },
+  {
+    tag: "Respect", prompt: "Ask one older person respectfully, “Have you eaten already?”",
+    context: "Use respectful kayo and keep po and ba near the predicate.",
+    options: ["Kumain na po ba kayo?", "Po kumain kayo na ba?", "Kumain kayo po ba na?"], answer: 0,
+    explanation: "Kumain na po ba kayo? is a common respectful predicate-first question. Kayo can address one person respectfully."
+  },
+  {
+    tag: "Topic-first", prompt: "You want to contrast the fish as topic: “The fish, Ana bought it.”",
+    context: "Use ay for the marked topic-first alternative.",
+    options: ["Ang isda ay binili ni Ana.", "Ang isda binili si Ana.", "Binili ang isda si Ana ay."], answer: 0,
+    explanation: "Ang isda ay binili ni Ana fronts the object as topic. The more neutral order begins with Binili."
+  },
+  {
+    tag: "Location focus", prompt: "The table is the affected location: “I will wipe the table.”",
+    context: "Use the -an locative family and mark the table with ang.",
+    options: ["Pupunasan ko ang mesa.", "Pupunas ako ng mesa.", "Pinupunasan ang mesa ako."], answer: 0,
+    explanation: "Pupunasan is contemplated locative focus. The table is ang-marked and the actor is ko."
+  },
+  {
+    tag: "Possession", prompt: "You point to a book and say, “The book is mine.”",
+    context: "Use the sa-set base as a possessive predicate.",
+    options: ["Akin ang libro.", "Ko ang libro.", "Sa ako ang libro."], answer: 0,
+    explanation: "Akin ang libro uses the possessive predicate akin. For “my book,” the noun phrase is libro ko."
+  }
+];
+
 const quiz = [
   {
     question: "You mean “we,” and the listener is included. Which ang-set pronoun fits?",
@@ -184,6 +247,54 @@ const quiz = [
     context: "Kita can combine a first-person singular actor with a singular listener as the other participant.",
     options: ["Nakita kita.", "Kumain kita.", "Nakita tayo."], answer: 0,
     explanation: "Nakita kita means “I saw you.” Kita is a special speaker-to-listener combination, not the inclusive pronoun tayo."
+  },
+  {
+    question: "Which verb family is a safe actor-focus starting point for “to sleep”?",
+    context: "Some actor-focus verbs belong to the ma- family rather than -um- or mag-.",
+    options: ["matulog", "tulugan", "itinulog"], answer: 0,
+    explanation: "Matulog is an ma- actor-focus verb. Its completed form is natulog, its ongoing form is natutulog, and its contemplated form is matutulog."
+  },
+  {
+    question: "You want to foreground the beneficiary in “I will cook food for Ana.” Which form fits?",
+    context: "Look for the contemplated ipag- benefactive pattern.",
+    options: ["magluluto", "ipagluluto", "nagluluto"], answer: 1,
+    explanation: "Ipagluluto is contemplated benefactive focus. It makes Ana, the person who benefits, the focused participant."
+  },
+  {
+    question: "Which sentence is a natural topic-first alternative to Binili ni Ana ang isda?",
+    context: "Topic-fronting commonly uses ay.",
+    options: ["Ang isda ay binili ni Ana.", "Ang isda ni Ana binili ay.", "Ay binili ni Ana ang isda."], answer: 0,
+    explanation: "Ang isda ay binili ni Ana puts the known fish first as topic. The predicate-first version remains the more neutral default."
+  },
+  {
+    question: "Which sentence means “I have not bought fish yet”?",
+    context: "Use predicate-first order with hindi, pa, and the focused first-person pronoun.",
+    options: ["Hindi pa ako bumili ng isda.", "Hindi ako bumili pa ng isda.", "Ako hindi pa bumili ng isda."], answer: 0,
+    explanation: "Hindi pa ako bumili ng isda places the negator and particle at the front, followed by the short pronoun."
+  },
+  {
+    question: "Which sentence asks one older person respectfully, “Have you eaten already?”",
+    context: "Respectful kayo can be singular; po and ba occur near the predicate.",
+    options: ["Kumain na po ba kayo?", "Kumain kayo po na ba?", "Po kumain na kayo ba?"], answer: 0,
+    explanation: "Kumain na po ba kayo? is a natural respectful question. Kayo may address one person respectfully."
+  },
+  {
+    question: "Which sentence makes the table the focused participant?",
+    context: "The -an family can put a location or affected surface in focus.",
+    options: ["Pupunasan ko ang mesa.", "Pupunas ako ng mesa.", "Pinunasan ako ng mesa."], answer: 0,
+    explanation: "Pupunasan ko ang mesa uses contemplated locative focus: the table is ang-marked and the actor is ko."
+  },
+  {
+    question: "Which statement means “The book is mine”?",
+    context: "Use the sa-set base as a possessive predicate.",
+    options: ["Libro ko ang akin.", "Akin ang libro.", "Ako ang libro."], answer: 1,
+    explanation: "Akin ang libro means “The book is mine.” Libro ko is the noun phrase “my book.”"
+  },
+  {
+    question: "What is the best first step before choosing a Tagalog verb form?",
+    context: "Verb affixes depend on the event role that will be in focus.",
+    options: ["Translate each English word in order.", "Choose the participant or role to put in focus.", "Add ang before the subject pronoun."], answer: 1,
+    explanation: "Decide what role the clause will focus first. Then select a verb family that licenses it, choose aspect, and match the markers and pronouns."
   }
 ];
 
@@ -329,6 +440,57 @@ aspectChoices.addEventListener("keydown", event => {
 });
 document.querySelector("#poToggle").addEventListener("change", renderFocus);
 
+const studioStage = document.querySelector("#studioStage");
+let studioIndex = 0;
+let studioScore = 0;
+let studioAnswered = false;
+
+function renderStudio() {
+  const item = studioDrills[studioIndex];
+  studioAnswered = false;
+  studioStage.innerHTML = `
+    <div class="studio-meta"><span>Studio prompt ${studioIndex + 1} of ${studioDrills.length}</span><span class="studio-tag">${item.tag}</span></div>
+    <h3 class="studio-prompt">${item.prompt}</h3>
+    <p class="studio-context">${item.context}</p>
+    <div class="studio-options">
+      ${item.options.map((option, index) => `<button type="button" class="studio-option" data-studio-answer="${index}"><strong>${String.fromCharCode(65 + index)}.</strong> ${option}</button>`).join("")}
+    </div>
+    <div class="studio-feedback" aria-live="polite"><span>Choose the complete clause that preserves the intended relationship.</span></div>`;
+}
+
+studioStage.addEventListener("click", event => {
+  const answerButton = event.target.closest("[data-studio-answer]");
+  const nextButton = event.target.closest("[data-studio-next]");
+  if (nextButton) {
+    if (studioIndex < studioDrills.length - 1) {
+      studioIndex += 1;
+      renderStudio();
+    } else {
+      studioStage.innerHTML = `
+        <div class="studio-complete"><p class="section-number">Studio complete</p><strong>${studioScore}/${studioDrills.length}</strong><h3>Now change one variable.</h3><p>Take a correct answer, then switch the focus, aspect, pronoun, or respect level. Predict every part that has to change before checking the lessons above.</p><button type="button" class="button button-primary studio-next" data-studio-restart>Run the studio again</button></div>`;
+    }
+    return;
+  }
+  if (event.target.closest("[data-studio-restart]")) {
+    studioIndex = 0;
+    studioScore = 0;
+    renderStudio();
+    return;
+  }
+  if (!answerButton || studioAnswered) return;
+  studioAnswered = true;
+  const item = studioDrills[studioIndex];
+  const selected = Number(answerButton.dataset.studioAnswer);
+  const correct = selected === item.answer;
+  if (correct) studioScore += 1;
+  studioStage.querySelectorAll(".studio-option").forEach((button, index) => {
+    button.disabled = true;
+    if (index === item.answer) button.classList.add("correct");
+    else if (index === selected) button.classList.add("incorrect");
+  });
+  studioStage.querySelector(".studio-feedback").innerHTML = `<strong>${correct ? "Tama — correct." : "Look again."}</strong><span>${item.explanation}</span><button type="button" class="button button-primary studio-next" data-studio-next>${studioIndex === studioDrills.length - 1 ? "See studio result" : "Next transformation"}</button>`;
+});
+
 let questionIndex = 0;
 let score = 0;
 let answered = false;
@@ -382,4 +544,5 @@ document.querySelector("#quizStage").addEventListener("click", event => {
 renderPronouns();
 renderRespect("casual");
 renderFocus();
+renderStudio();
 renderQuiz();
