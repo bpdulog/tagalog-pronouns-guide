@@ -19,6 +19,7 @@
 
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
+main section { scroll-margin-top: 76px; }
 body {
   margin: 0;
   color: var(--ink);
@@ -29,6 +30,10 @@ body {
 button, input { font: inherit; }
 button, a { -webkit-tap-highlight-color: transparent; }
 a { color: inherit; }
+button:focus-visible, a:focus-visible, summary:focus-visible, [tabindex="0"]:focus-visible {
+  outline: 3px solid rgba(233, 104, 74, .42);
+  outline-offset: 3px;
+}
 
 .skip-link {
   position: fixed;
@@ -202,6 +207,39 @@ h1 em { color: var(--coral); font-weight: 500; }
 .rule-callout { display: flex; gap: 1rem; max-width: 900px; margin: 2rem auto 0; padding: 1.2rem 1.5rem; border-radius: 16px; background: var(--gold-soft); }
 .rule-icon { color: #b57d12; font-size: 1.4rem; }
 .rule-callout p { margin: .25rem 0 0; color: var(--muted); font-size: .9rem; }
+.marker-warning { max-width: 1100px; margin: 2rem auto 0; padding: 1.25rem; color: white; border-radius: 16px; background: var(--navy); }
+.marker-warning > strong { display: block; margin-bottom: .9rem; font-family: Georgia, serif; font-size: 1.2rem; }
+.marker-warning > div { display: grid; grid-template-columns: repeat(3, 1fr); gap: .65rem; }
+.marker-warning span { padding: .8rem; border-radius: 10px; background: rgba(255,255,255,.08); }
+.marker-warning b, .marker-warning code, .marker-warning small { display: block; }
+.marker-warning b { color: #f4b347; font-size: .66rem; letter-spacing: .06em; text-transform: uppercase; }
+.marker-warning code { margin: .3rem 0; color: white; font-family: Georgia, serif; font-size: 1.05rem; }
+.marker-warning small { color: #c4d0df; font-size: .7rem; }
+.pronoun-usage-heading { margin: 3rem 0 1.2rem; }
+.pronoun-usage-heading h3 { margin: .15rem 0 0; font-family: Georgia, serif; font-size: clamp(1.8rem, 3vw, 2.7rem); }
+.pronoun-usage-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: .8rem; }
+.pronoun-usage-grid article { padding: 1.2rem; border: 1px solid var(--line); border-radius: 15px; background: white; }
+.usage-label { color: var(--coral); font-size: .65rem; font-weight: 800; letter-spacing: .07em; text-transform: uppercase; }
+.pronoun-usage-grid h4 { margin: .65rem 0; font-family: Georgia, serif; font-size: 1.25rem; }
+.pronoun-usage-grid p { margin: 0; color: var(--muted); font-size: .78rem; }
+.respectful-pronoun-note { display: flex; align-items: center; gap: 1rem; max-width: 900px; margin: 1.5rem auto 0; }
+.respectful-pronoun-note > span { display: grid; place-items: center; width: 52px; height: 52px; flex: 0 0 auto; color: white; border-radius: 50%; background: var(--coral); font-family: Georgia, serif; font-weight: 700; }
+.respectful-pronoun-note p { margin: 0; color: var(--muted); font-size: .82rem; }
+.pronoun-chart { max-width: 1100px; margin: 2rem auto 0; border: 1px solid rgba(24, 49, 83, .13); border-radius: 16px; background: white; box-shadow: 0 10px 30px rgba(19, 34, 56, .06); }
+.pronoun-chart summary { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 1.1rem 1.35rem; cursor: pointer; list-style: none; }
+.pronoun-chart summary::-webkit-details-marker { display: none; }
+.pronoun-chart summary strong, .pronoun-chart summary small { display: block; }
+.pronoun-chart summary small { margin-top: .15rem; color: var(--muted); font-size: .76rem; }
+.summary-icon { display: grid; place-items: center; width: 30px; height: 30px; flex: 0 0 auto; color: white; border-radius: 50%; background: var(--navy); font-size: 1.25rem; line-height: 1; transition: transform .2s ease; }
+.pronoun-chart[open] .summary-icon { transform: rotate(45deg); }
+.table-scroll { overflow-x: auto; border-top: 1px solid var(--line); }
+.pronoun-chart table { width: 100%; min-width: 680px; border-collapse: collapse; text-align: left; }
+.pronoun-chart caption { position: absolute; width: 1px; height: 1px; padding: 0; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
+.pronoun-chart th, .pronoun-chart td { padding: .8rem 1.35rem; border-bottom: 1px solid var(--line); }
+.pronoun-chart thead th { color: var(--coral); background: #fffdf9; font-size: .72rem; letter-spacing: .06em; text-transform: uppercase; }
+.pronoun-chart tbody th { color: var(--muted); font-size: .78rem; font-weight: 700; }
+.pronoun-chart tbody td { font-family: Georgia, serif; font-size: 1.05rem; }
+.chart-note { margin: 0; padding: 1rem 1.35rem; color: var(--muted); font-size: .8rem; }
 
 .respect-demo { display: grid; grid-template-columns: .75fr 1.3fr .75fr; align-items: stretch; gap: 1rem; }
 .respect-switcher { display: grid; align-content: center; gap: .6rem; padding: 1rem; border-radius: 18px; background: #f3eee5; }
@@ -217,7 +255,7 @@ h1 em { color: var(--coral); font-weight: 500; }
 .placement-rule span { color: #8a651b; font-size: .7rem; font-weight: 800; text-transform: uppercase; }
 .placement-rule strong { margin: .8rem 0; font-family: Georgia, serif; font-size: 1.35rem; }
 .placement-rule p { margin: 0; color: var(--muted); font-size: .8rem; }
-.mini-lessons { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-top: 2.5rem; }
+.mini-lessons { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; margin-top: 2.5rem; }
 .mini-lessons article { padding: 1.5rem; border-top: 1px solid var(--line); }
 .mini-lessons h3 { margin: .7rem 0; font-family: Georgia, serif; font-size: 1.4rem; }
 .mini-lessons p { color: var(--muted); font-size: .86rem; }
@@ -268,6 +306,52 @@ legend { margin-bottom: .8rem; font-size: .75rem; font-weight: 800; letter-spaci
 .aspect-strip strong { margin: .35rem 0; font-family: Georgia, serif; font-size: 1.25rem; }
 .aspect-strip small, .aspect-strip p { color: #c4d0df; font-size: .75rem; }
 
+.focus-choice-guide { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-bottom: 2rem; }
+.focus-choice-guide article { padding: 1.35rem; border: 1px solid rgba(255,255,255,.16); border-radius: 16px; background: rgba(255,255,255,.06); }
+.decision-label { color: #f4b347; font-size: .67rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
+.focus-choice-guide h3 { margin: .65rem 0; font-family: Georgia, serif; font-size: 1.35rem; }
+.focus-choice-guide p { margin: 0; color: #c4d0df; font-size: .8rem; }
+.focus-choice-guide .decision-example { margin-top: 1rem; color: white; font-family: Georgia, serif; font-size: 1rem; }
+.scope-note { margin: -1rem 0 2rem; color: #c4d0df; font-size: .75rem; }
+
+.forms-section { background: white; }
+.form-workflow { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 1rem; max-width: 980px; margin: -1rem auto 2rem; padding: 1rem; border-radius: 16px; background: var(--gold-soft); }
+.form-workflow > div { display: flex; align-items: center; gap: .8rem; }
+.form-workflow span, .order-rules span { display: grid; place-items: center; width: 32px; height: 32px; flex: 0 0 auto; color: white; border-radius: 50%; background: var(--coral); font-weight: 800; }
+.form-workflow p { margin: 0; color: var(--muted); font-size: .8rem; }
+.form-workflow b { color: #b98219; }
+.verb-family-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+.verb-family { padding: 1.4rem; border: 1px solid var(--line); border-radius: 18px; background: #fffdf9; }
+.family-heading { display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+.family-heading span { color: var(--muted); font-size: .68rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
+.family-heading strong { color: var(--coral); font-family: Georgia, serif; font-size: 1.15rem; }
+.verb-family > p { min-height: 3.9em; color: var(--muted); font-size: .79rem; }
+.paradigm { display: flex; flex-wrap: wrap; gap: .5rem; }
+.paradigm span, .specialized-examples span { flex: 1 1 112px; padding: .65rem .7rem; border-radius: 9px; background: var(--blue-soft); font-family: Georgia, serif; font-size: 1rem; }
+.paradigm small, .specialized-examples small { display: block; margin-bottom: .15rem; color: var(--muted); font-family: Inter, ui-sans-serif, system-ui, sans-serif; font-size: .58rem; font-weight: 800; letter-spacing: .05em; text-transform: uppercase; }
+.actor-family { border-top: 4px solid var(--coral); }
+.object-family { border-top: 4px solid var(--mint); }
+.location-family { border-top: 4px solid #759bc0; }
+.other-family { border-top: 4px solid var(--gold); }
+.specialized-examples { display: grid; gap: .5rem; }
+.specialized-examples span { background: var(--gold-soft); }
+.form-warning { margin-top: 2rem; }
+
+.order-section { background: #f3eee5; }
+.order-examples { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+.order-examples article { padding: 1.5rem; border: 1px solid rgba(24,49,83,.13); border-radius: 18px; background: white; box-shadow: 0 10px 30px rgba(19,34,56,.06); }
+.order-number { color: var(--coral); font-size: .67rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
+.order-examples h3 { min-height: 3.2em; margin: 1rem 0; font-family: Georgia, serif; font-size: clamp(1.25rem, 2.1vw, 1.8rem); line-height: 1.45; }
+.order-examples h3 span { padding: 0 .12em; border-radius: 4px; box-decoration-break: clone; -webkit-box-decoration-break: clone; }
+.predicate-part { color: #8a651b; background: var(--gold-soft); }
+.focus-part { background: var(--coral-soft); }
+.detail-part { background: var(--mint-soft); }
+.place-part { background: var(--blue-soft); }
+.order-examples p { margin: 0; color: var(--muted); font-size: .82rem; }
+.order-rules { display: grid; grid-template-columns: 1fr 1fr; gap: .75rem; margin-top: 1.5rem; }
+.order-rules > div { display: flex; align-items: center; gap: .8rem; padding: 1rem; border-radius: 13px; background: rgba(255,255,255,.58); }
+.order-rules p { margin: 0; color: var(--muted); font-size: .8rem; }
+
 .quiz { max-width: 900px; padding: clamp(1.5rem, 5vw, 3rem); }
 .quiz-progress { display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 1rem; color: var(--muted); font-size: .75rem; font-weight: 800; }
 .progress-track { height: 7px; overflow: hidden; border-radius: 99px; background: #e7e9eb; }
@@ -310,21 +394,30 @@ footer { display: flex; justify-content: space-between; align-items: center; gap
 footer > p { max-width: 580px; margin: 0; text-align: right; font-size: .74rem; }
 
 @media (max-width: 960px) {
+  .site-header { gap: 1rem; }
+  nav { gap: .8rem; }
+  nav a { font-size: .78rem; }
   .hero { min-height: auto; grid-template-columns: 1fr; }
   .sentence-window { max-width: 720px; transform: none; }
   .split-heading { grid-template-columns: 1fr; gap: .5rem; }
   .pronoun-tool, .focus-lab { grid-template-columns: 1fr; }
   .respect-demo { grid-template-columns: 1fr 1fr; }
   .respect-switcher { grid-column: 1 / -1; grid-template-columns: 1fr 1fr; }
-  .mini-lessons { grid-template-columns: 1fr; }
+  .mini-lessons { grid-template-columns: 1fr 1fr; }
+  .focus-choice-guide { grid-template-columns: 1fr; }
+  .pronoun-usage-grid { grid-template-columns: 1fr 1fr; }
+  .verb-family-grid { grid-template-columns: 1fr; }
+  .order-examples { grid-template-columns: 1fr; }
   .aspect-strip { grid-template-columns: repeat(3, 1fr); }
   .aspect-strip > p { grid-column: 1 / -1; }
   .references { grid-template-columns: 1fr; gap: 1.5rem; }
 }
 
 @media (max-width: 680px) {
-  .site-header { min-height: 64px; }
-  .site-header nav { display: none; }
+  main section { scroll-margin-top: 112px; }
+  .site-header { min-height: 64px; flex-wrap: wrap; gap: .35rem; padding-top: .65rem; padding-bottom: .5rem; }
+  .site-header nav { width: 100%; justify-content: space-between; gap: 1rem; overflow-x: auto; }
+  .site-header nav a { flex: 0 0 auto; font-size: .74rem; }
   .brand small { display: none; }
   .hero { padding-top: 4rem; }
   .hero-actions .button { width: 100%; }
@@ -332,10 +425,15 @@ footer > p { max-width: 580px; margin: 0; text-align: right; font-size: .74rem; 
   .sentence-large { font-size: 1.65rem; }
   .sentence-key { display: grid; }
   .choice-grid, .case-cards, .focus-options { grid-template-columns: 1fr; }
+  .marker-warning > div, .pronoun-usage-grid { grid-template-columns: 1fr; }
   .result-intro { display: block; }
   .person-badge { display: inline-block; margin-top: .75rem; }
   .respect-demo { grid-template-columns: 1fr; }
   .respect-switcher { grid-column: auto; }
+  .mini-lessons { grid-template-columns: 1fr; }
+  .form-workflow { grid-template-columns: 1fr; }
+  .form-workflow b { display: none; }
+  .order-rules { grid-template-columns: 1fr; }
   .aspect-options { grid-template-columns: 1fr; }
   .aspect-strip { grid-template-columns: 1fr; }
   .aspect-strip > p { grid-column: auto; }

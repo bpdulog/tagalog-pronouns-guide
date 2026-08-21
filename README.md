@@ -7,12 +7,19 @@ GitHub Pages.
 ## Lessons included
 
 - Choose among the `ang`, `ng`, and `sa` pronoun sets.
+- Compare every core personal pronoun in a complete quick-reference chart.
+- Use pronouns as focused participants, non-focused actors, possessors, and
+  recipients; order multiple pronouns and recognize the special form `kita`.
 - Distinguish inclusive `tayo` from exclusive `kami`.
 - Place `po` naturally and use `opo` as a respectful “yes.”
-- See how actor, object, location, beneficiary, and instrument focus reshape
-  the same buying scene.
-- Compare completed, ongoing, and contemplated aspect.
-- Check understanding with a five-question practice round.
+- Decide when actor, object, location, beneficiary, or instrument focus fits a
+  message, then see each choice reshape the same buying scene.
+- Build completed, ongoing, and contemplated forms in common verb families.
+- Follow predicate-first word order while placing pronouns and particles.
+- Check understanding with a twelve-question practice round.
+
+The interactive single-choice controls support arrow, Home, and End keys, and
+the lesson navigation remains available on small screens.
 
 ## Run locally
 

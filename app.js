@@ -142,6 +142,48 @@ const quiz = [
     context: "The buyer should use the ang-set pronoun.",
     options: ["Binili ko ang isda.", "Bumili ako ng isda.", "Ipinambili ko ng isda ang pera."], answer: 1,
     explanation: "Bumili is actor focus, so the focused buyer is expressed as ako."
+  },
+  {
+    question: "Which form means “is cooking” in the actor-focus mag- family?",
+    context: "For ongoing action, mag- becomes nag- and the root’s first syllable repeats.",
+    options: ["nagluto", "nagluluto", "magluluto"], answer: 1,
+    explanation: "Nagluluto is ongoing: nag- + the repeated first syllable lu + luto. Nagluto is completed; magluluto is contemplated."
+  },
+  {
+    question: "Which object-focus form of bili expresses contemplated action?",
+    context: "The -in / -hin family repeats the first consonant-vowel in contemplated forms.",
+    options: ["binili", "binibili", "bibilhin"], answer: 2,
+    explanation: "Bibilhin is the contemplated object-focus form. Binili is completed and binibili is ongoing."
+  },
+  {
+    question: "Which is the safest neutral word order for “Ana bought fish at the market”?",
+    context: "Start with a predicate, then use markers to identify each participant.",
+    options: ["Si Ana isda bumili palengke.", "Bumili si Ana ng isda sa palengke.", "Ng isda sa palengke si Ana bumili."], answer: 1,
+    explanation: "The dependable pattern is predicate first: Bumili + focused actor si Ana + object ng isda + location sa palengke."
+  },
+  {
+    question: "Which object-focus sentence places a short actor pronoun and po naturally?",
+    context: "Short pronouns and po gather near the first word.",
+    options: ["Binili po ko ang isda.", "Binili ko po ang isda.", "Binili ang isda po ko."], answer: 1,
+    explanation: "Ko is a short pronoun and comes before po in this cluster: Binili ko po ang isda."
+  },
+  {
+    question: "Which sentence correctly uses an ang-set pronoun?",
+    context: "The set name describes the pronoun’s role; it is not an extra marker.",
+    options: ["Kumain ang ako.", "Kumain ako.", "Kumain ng ako."], answer: 1,
+    explanation: "Say Kumain ako. Pronouns already encode their set, so ang is not placed before ako."
+  },
+  {
+    question: "How do you naturally say “my book”?",
+    context: "A possessive ng-set pronoun follows the noun it modifies.",
+    options: ["ko libro", "libro ako", "libro ko"], answer: 2,
+    explanation: "Libro ko means “my book.” Ko follows the possessed noun. Akin ang libro instead means “The book is mine.”"
+  },
+  {
+    question: "Which sentence uses the special form kita correctly?",
+    context: "Kita can combine a first-person singular actor with a singular listener as the other participant.",
+    options: ["Nakita kita.", "Kumain kita.", "Nakita tayo."], answer: 0,
+    explanation: "Nakita kita means “I saw you.” Kita is a special speaker-to-listener combination, not the inclusive pronoun tayo."
   }
 ];
 
@@ -151,7 +193,7 @@ let selectedPerson = pronouns[0].id;
 
 function renderPronouns() {
   personChoices.innerHTML = pronouns.map(person => `
-    <button class="person-choice ${person.id === selectedPerson ? "active" : ""}" type="button" role="radio" aria-checked="${person.id === selectedPerson}" data-person="${person.id}">
+    <button class="person-choice ${person.id === selectedPerson ? "active" : ""}" type="button" role="radio" aria-checked="${person.id === selectedPerson}" tabindex="${person.id === selectedPerson ? "0" : "-1"}" data-person="${person.id}">
       <strong>${person.choice}</strong><small>${person.sub}</small>
     </button>`).join("");
 
@@ -173,6 +215,39 @@ personChoices.addEventListener("click", event => {
   if (!button) return;
   selectedPerson = button.dataset.person;
   renderPronouns();
+  restoreChoiceFocus(personChoices, "[data-person]", "person", selectedPerson);
+});
+
+function restoreChoiceFocus(group, selector, dataKey, value) {
+  requestAnimationFrame(() => {
+    const selected = [...group.querySelectorAll(selector)].find(button => button.dataset[dataKey] === value);
+    selected?.focus();
+  });
+}
+
+function handleRadioKeys(event, selector, onSelect) {
+  if (!["ArrowLeft", "ArrowRight", "ArrowUp", "ArrowDown", "Home", "End"].includes(event.key)) return;
+  const group = event.currentTarget;
+  const buttons = [...group.querySelectorAll(selector)];
+  const currentIndex = buttons.indexOf(document.activeElement);
+  if (currentIndex < 0) return;
+  event.preventDefault();
+  let nextIndex;
+  if (event.key === "Home") nextIndex = 0;
+  else if (event.key === "End") nextIndex = buttons.length - 1;
+  else {
+    const direction = event.key === "ArrowRight" || event.key === "ArrowDown" ? 1 : -1;
+    nextIndex = (currentIndex + direction + buttons.length) % buttons.length;
+  }
+  onSelect(buttons[nextIndex].dataset);
+  requestAnimationFrame(() => group.querySelectorAll(selector)[nextIndex].focus());
+}
+
+personChoices.addEventListener("keydown", event => {
+  handleRadioKeys(event, "[data-person]", data => {
+    selectedPerson = data.person;
+    renderPronouns();
+  });
 });
 
 const dialogueCard = document.querySelector("#dialogueCard");
@@ -203,10 +278,10 @@ let selectedAspect = "completed";
 
 function renderFocusControls() {
   focusChoices.innerHTML = Object.entries(focusData).map(([key, data]) => `
-    <button type="button" class="focus-option ${key === selectedFocus ? "active" : ""}" data-focus="${key}" aria-pressed="${key === selectedFocus}">${data.icon} ${data.label}</button>`).join("");
+    <button type="button" role="radio" class="focus-option ${key === selectedFocus ? "active" : ""}" data-focus="${key}" aria-checked="${key === selectedFocus}" tabindex="${key === selectedFocus ? "0" : "-1"}">${data.icon} ${data.label}</button>`).join("");
   aspectChoices.innerHTML = [
     ["completed", "Completed"], ["ongoing", "Ongoing"], ["contemplated", "Contemplated"]
-  ].map(([key, label]) => `<button type="button" class="aspect-option ${key === selectedAspect ? "active" : ""}" data-aspect="${key}" aria-pressed="${key === selectedAspect}">${label}</button>`).join("");
+  ].map(([key, label]) => `<button type="button" role="radio" class="aspect-option ${key === selectedAspect ? "active" : ""}" data-aspect="${key}" aria-checked="${key === selectedAspect}" tabindex="${key === selectedAspect ? "0" : "-1"}">${label}</button>`).join("");
 }
 
 function highlightFocus(sentence, marker) {
@@ -231,12 +306,26 @@ focusChoices.addEventListener("click", event => {
   if (!button) return;
   selectedFocus = button.dataset.focus;
   renderFocus();
+  restoreChoiceFocus(focusChoices, "[data-focus]", "focus", selectedFocus);
 });
 aspectChoices.addEventListener("click", event => {
   const button = event.target.closest("[data-aspect]");
   if (!button) return;
   selectedAspect = button.dataset.aspect;
   renderFocus();
+  restoreChoiceFocus(aspectChoices, "[data-aspect]", "aspect", selectedAspect);
+});
+focusChoices.addEventListener("keydown", event => {
+  handleRadioKeys(event, "[data-focus]", data => {
+    selectedFocus = data.focus;
+    renderFocus();
+  });
+});
+aspectChoices.addEventListener("keydown", event => {
+  handleRadioKeys(event, "[data-aspect]", data => {
+    selectedAspect = data.aspect;
+    renderFocus();
+  });
 });
 document.querySelector("#poToggle").addEventListener("change", renderFocus);
 
