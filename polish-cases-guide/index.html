@@ -1,0 +1,304 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="An interactive Polish grammar guide centered on the seven cases, from basic learner foundations to intermediate sentence building.">
+  <meta name="theme-color" content="#17324d">
+  <title>Przypadki - Polish Cases & Core Grammar</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to the lesson</a>
+
+  <header class="site-header">
+    <a class="brand" href="#top" aria-label="Przypadki home">
+      <span class="brand-mark" aria-hidden="true">P</span>
+      <span>
+        <strong>Przypadki</strong>
+        <small>Polish grammar path</small>
+      </span>
+    </a>
+    <nav aria-label="Main navigation">
+      <a href="#course">Course</a>
+      <a href="#cases">Cases</a>
+      <a href="#patterns">Patterns</a>
+      <a href="#verbs">Verbs</a>
+      <a href="#word-order">Word order</a>
+      <a href="#studio">Studio</a>
+      <a href="#practice">Practice</a>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="top">
+      <div class="hero-copy">
+        <p class="eyebrow">From first phrases to flexible Polish</p>
+        <h1>Learn the case.<br><em>Build the sentence.</em></h1>
+        <p class="hero-lede">Polish nouns, adjectives, and pronouns change form to show their job. This guide makes the seven cases the anchor for everything else: possession, negation, motion, location, tools, recipients, and address.</p>
+        <div class="hero-actions">
+          <a class="button button-primary" href="#cases">Open the case lab</a>
+          <a class="button button-secondary" href="#studio">Try sentence studio</a>
+        </div>
+      </div>
+
+      <div class="sentence-window" aria-label="Polish sentence breakdown">
+        <div class="window-bar">
+          <span></span><span></span><span></span>
+          <small>case anatomy</small>
+        </div>
+        <div class="sentence-stage">
+          <p class="sentence-translation">"I see a good student."</p>
+          <p class="sentence-large"><span class="word verb-word">Widzę</span> <span class="word focus-word">dobrego studenta.</span></p>
+          <div class="sentence-key">
+            <span><i class="key-verb"></i> verb trigger</span>
+            <span><i class="key-focus"></i> accusative object</span>
+          </div>
+          <div class="focus-shift" aria-hidden="true">
+            <span>Change the role</span>
+            <b>-></b>
+          </div>
+          <p class="sentence-large alternate"><span class="word detail-word">Nie widzę</span> <span class="word actor-word">dobrego studenta.</span></p>
+          <p class="mini-note">Negated direct objects usually shift to genitive.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="course-section" id="course" aria-labelledby="course-title">
+      <div class="course-intro">
+        <p class="section-number">A guided course, not a phrasebook</p>
+        <h2 id="course-title">Move from forms to choices.</h2>
+        <p>Every useful Polish sentence asks a few linked questions: What is the noun's role? Which case marks that role? What gender and number does the noun have? Does a verb, preposition, negator, or motion idea force a form?</p>
+      </div>
+      <ol class="course-map">
+        <li>
+          <span class="course-level">Level 1</span>
+          <h3>Foundations</h3>
+          <p>Read Polish spelling confidently, spot gender, use basic present-tense verbs, and build simple nominative sentences.</p>
+          <a href="#patterns">Start with noun patterns <span aria-hidden="true">-></span></a>
+        </li>
+        <li>
+          <span class="course-level">Level 2</span>
+          <h3>The case engine</h3>
+          <p>Learn all seven cases as sentence jobs, then practice the most common triggers and questions.</p>
+          <a href="#cases">Study the seven cases <span aria-hidden="true">-></span></a>
+        </li>
+        <li>
+          <span class="course-level">Level 3</span>
+          <h3>Verbs and movement</h3>
+          <p>Use aspect, negation, motion verbs, and prepositions that switch case by meaning.</p>
+          <a href="#verbs">Compare verb choices <span aria-hidden="true">-></span></a>
+        </li>
+        <li>
+          <span class="course-level">Level 4</span>
+          <h3>Intermediate clauses</h3>
+          <p>Combine pronouns, adjectives, case-governed phrases, flexible word order, and natural emphasis.</p>
+          <a href="#studio">Build full clauses <span aria-hidden="true">-></span></a>
+        </li>
+      </ol>
+      <div class="course-loop" aria-label="Sentence-building sequence">
+        <span>Meaning</span><b>-></b><span>Role</span><b>-></b><span>Case</span><b>-></b><span>Gender</span><b>-></b><span>Ending</span><b>-></b><span>Word order</span>
+      </div>
+    </section>
+
+    <section class="lesson-section case-section" id="cases">
+      <div class="section-heading">
+        <p class="section-number">01 · Seven cases</p>
+        <h2>Cases are roles,<br>not random endings.</h2>
+        <p>Choose a case below to see the question it answers, the role it marks, common triggers, and a learner-safe example.</p>
+      </div>
+
+      <div class="case-tool card-shell">
+        <div class="case-picker">
+          <p class="control-label">Which case are you using?</p>
+          <div class="choice-grid" id="caseChoices" role="radiogroup" aria-label="Choose a Polish case"></div>
+        </div>
+        <div class="case-result" aria-live="polite">
+          <div class="result-intro">
+            <div>
+              <p class="control-label">Your case map</p>
+              <h3 id="caseName">Nominative</h3>
+            </div>
+            <span class="person-badge" id="caseQuestion">kto? co?</span>
+          </div>
+          <div class="case-cards" id="caseCards"></div>
+        </div>
+      </div>
+
+      <div class="rule-callout">
+        <span class="rule-icon" aria-hidden="true">7</span>
+        <div>
+          <strong>The seven-case shortcut</strong>
+          <p>Nominative names the subject. Genitive often marks absence, possession, quantity, and negation. Dative marks receivers. Accusative marks many direct objects and destinations. Instrumental marks tools and "with." Locative appears after specific prepositions. Vocative addresses someone directly.</p>
+        </div>
+      </div>
+
+      <details class="case-chart" open>
+        <summary>
+          <span>
+            <strong>Compare every case</strong>
+            <small>Open the core question and trigger chart</small>
+          </span>
+          <span class="summary-icon" aria-hidden="true">+</span>
+        </summary>
+        <div class="table-scroll" tabindex="0" role="region" aria-label="Complete Polish case chart">
+          <table>
+            <caption>Polish cases grouped by sentence role</caption>
+            <thead>
+              <tr>
+                <th scope="col">Case</th>
+                <th scope="col">Questions</th>
+                <th scope="col">Core roles</th>
+                <th scope="col">Starter example</th>
+              </tr>
+            </thead>
+            <tbody id="caseTable"></tbody>
+          </table>
+        </div>
+      </details>
+    </section>
+
+    <section class="lesson-section" id="patterns">
+      <div class="section-heading">
+        <p class="section-number">02 · Nouns and adjectives</p>
+        <h2>Gender tells endings<br>where to start.</h2>
+        <p>Before choosing a case ending, identify gender and number. Adjectives usually follow the noun's gender, number, and case.</p>
+      </div>
+      <div class="pattern-grid">
+        <article>
+          <span class="usage-label">Masculine personal</span>
+          <h3>dobry student</h3>
+          <p>People like <em>student</em>, <em>brat</em>, and <em>lekarz</em> matter for accusative and plural agreement.</p>
+        </article>
+        <article>
+          <span class="usage-label">Masculine non-personal</span>
+          <h3>dobry film</h3>
+          <p>Inanimate masculine nouns often keep nominative-looking accusative forms: <em>Widzę dobry film</em>.</p>
+        </article>
+        <article>
+          <span class="usage-label">Feminine</span>
+          <h3>dobra kawa</h3>
+          <p>Many feminine nouns end in <em>-a</em>. Accusative often changes <em>-a</em> to <em>-ę</em>: <em>piję dobrą kawę</em>.</p>
+        </article>
+        <article>
+          <span class="usage-label">Neuter</span>
+          <h3>dobre miasto</h3>
+          <p>Neuter nouns commonly end in <em>-o</em> or <em>-e</em> and keep the same nominative and accusative form.</p>
+        </article>
+      </div>
+      <div class="ending-strip" aria-label="Starter adjective endings">
+        <span>Nom: dobry student</span>
+        <span>Gen: dobrego studenta</span>
+        <span>Dat: dobremu studentowi</span>
+        <span>Acc: dobrego studenta</span>
+        <span>Inst: dobrym studentem</span>
+        <span>Loc: dobrym studencie</span>
+        <span>Voc: dobry studencie</span>
+      </div>
+    </section>
+
+    <section class="lesson-section verb-section" id="verbs">
+      <div class="section-heading">
+        <p class="section-number">03 · Verbs and triggers</p>
+        <h2>Verbs choose meaning.<br>Cases show the roles.</h2>
+        <p>Intermediate Polish depends on noticing what triggers a case: a verb, a preposition, a negator, or a motion/location contrast.</p>
+      </div>
+      <div class="verb-lab card-shell">
+        <div>
+          <p class="control-label">Choose a trigger</p>
+          <div class="choice-list" id="triggerChoices" role="radiogroup" aria-label="Choose a case trigger"></div>
+        </div>
+        <article class="trigger-card" id="triggerCard" aria-live="polite"></article>
+      </div>
+      <div class="aspect-grid">
+        <article>
+          <span class="usage-label">Imperfective</span>
+          <h3>czytam, piszę, robię</h3>
+          <p>Use for ongoing, habitual, repeated, or process-focused actions: <em>Czytam książkę</em> can mean "I am reading" or "I read."</p>
+        </article>
+        <article>
+          <span class="usage-label">Perfective</span>
+          <h3>przeczytam, napiszę, zrobię</h3>
+          <p>Use for bounded completed or future outcomes: <em>Przeczytam książkę</em> means "I will read the book through."</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="lesson-section" id="word-order">
+      <div class="section-heading">
+        <p class="section-number">04 · Word order</p>
+        <h2>Cases carry roles.<br>Order manages emphasis.</h2>
+        <p>Polish often uses subject-verb-object order, but case endings allow movement. Put familiar material earlier and the new or contrastive point later.</p>
+      </div>
+      <div class="order-grid">
+        <article>
+          <span class="usage-label">Neutral</span>
+          <h3>Ala czyta książkę.</h3>
+          <p>The subject comes first, then the verb, then an accusative object.</p>
+        </article>
+        <article>
+          <span class="usage-label">Object as topic</span>
+          <h3>Książkę czyta Ala.</h3>
+          <p>The case ending keeps <em>książkę</em> as the object even when it appears first.</p>
+        </article>
+        <article>
+          <span class="usage-label">Negation</span>
+          <h3>Ala nie czyta książki.</h3>
+          <p>Negated direct objects commonly appear in genitive, so <em>książka</em> becomes <em>książki</em>.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="lesson-section studio-section" id="studio">
+      <div class="section-heading">
+        <p class="section-number">05 · Sentence studio</p>
+        <h2>Turn a message<br>into a Polish clause.</h2>
+        <p>Choose the form that matches the sentence role. The explanation names the case trigger so you can reuse the pattern.</p>
+      </div>
+      <div class="studio-card card-shell">
+        <div class="studio-meta">
+          <span id="studioTag">Case choice</span>
+          <span id="studioCount">1 of 10</span>
+        </div>
+        <h3 id="studioPrompt">Prompt</h3>
+        <p id="studioContext">Context</p>
+        <div class="answer-stack" id="studioOptions" role="radiogroup" aria-label="Sentence studio options"></div>
+        <div class="feedback" id="studioFeedback" aria-live="polite"></div>
+        <button class="button button-primary" id="nextStudio" type="button">Next prompt</button>
+      </div>
+    </section>
+
+    <section class="lesson-section practice-section" id="practice">
+      <div class="section-heading">
+        <p class="section-number">06 · Practice</p>
+        <h2>Check the whole system.</h2>
+        <p>A twenty-question round covering case names, triggers, endings, gender, aspect, negation, prepositions, and emphasis.</p>
+      </div>
+      <div class="quiz-card card-shell">
+        <div class="studio-meta">
+          <span id="quizStage">Question 1 of 20</span>
+          <span id="quizScore">Score 0</span>
+        </div>
+        <h3 id="quizQuestion">Question</h3>
+        <p id="quizContext">Context</p>
+        <div class="answer-stack" id="quizOptions" role="radiogroup" aria-label="Practice options"></div>
+        <div class="feedback" id="quizFeedback" aria-live="polite"></div>
+        <button class="button button-primary" id="nextQuiz" type="button">Next question</button>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <a class="footer-brand" href="#top">
+      <span class="brand-mark" aria-hidden="true">P</span>
+      <span>
+        <strong>Przypadki</strong>
+        <small>Polish cases & grammar</small>
+      </span>
+    </a>
+    <p>Learn the role, choose the case, then build the phrase around it.</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
