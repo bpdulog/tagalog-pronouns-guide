@@ -1,9 +1,0 @@
-{
-  "name": "polish-cases-guide",
-  "version": "1.0.0",
-  "private": true,
-  "description": "An interactive guide from basic Polish foundations to intermediate case use.",
-  "scripts": {
-    "test": "node --check app.js && node tests/smoke.test.js"
-  }
-}
