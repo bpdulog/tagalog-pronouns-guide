@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Explore Tagalog verb roots and affix families as an interactive tree.">
+  <meta name="theme-color" content="#183153">
+  <title>Affix Tree Explorer · Tukoy</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="tool-page">
+  <a class="skip-link" href="#main">Skip to the explorer</a>
+  <header class="site-header">
+    <a class="brand" href="index.html" aria-label="Tukoy home"><span class="brand-mark" aria-hidden="true">T</span><span><strong>Tukoy</strong><small>Tagalog sentence guide</small></span></a>
+    <nav aria-label="Main navigation"><a href="index.html">Course</a><a href="affix-explorer.html" aria-current="page">Affix explorer</a><a href="confusion-pairs.html">Confusion pairs</a><a href="phrasebook.html">Phrasebook</a></nav>
+  </header>
+  <main id="main">
+    <section class="tool-hero affix-hero">
+      <p class="eyebrow">One root, many routes</p>
+      <h1>See the verb<br><em>grow.</em></h1>
+      <p>Choose a root, then take a branch. Each path shows a common affixed form, what it puts in focus, and a sentence you can hear.</p>
+      <p class="tool-note">A tree reveals possibilities—not promises. Whether a form is natural depends on the root and context.</p>
+    </section>
+
+    <section class="tree-workspace" aria-label="Interactive affix tree">
+      <div class="tree-controls">
+        <p class="control-label">1 · Choose a root</p>
+        <div class="root-tabs" id="rootTabs" role="tablist" aria-label="Choose a verb root"></div>
+        <p class="tree-instruction"><strong>2 · Follow a branch.</strong> Branches are grouped by the role the form typically foregrounds.</p>
+      </div>
+      <div class="tree-canvas">
+        <div class="tree-root" id="treeRoot" aria-live="polite"></div>
+        <div class="tree-branches" id="treeBranches" role="list" aria-label="Available affix paths"></div>
+      </div>
+      <article class="affix-detail" aria-live="polite">
+        <p class="control-label">Your selected path</p>
+        <div class="detail-heading"><span class="affix-badge" id="affixBadge"></span><h2 id="affixForm"></h2></div>
+        <p class="detail-meaning" id="affixMeaning"></p>
+        <dl class="form-facts"><div><dt>Focus</dt><dd id="affixFocus"></dd></div><div><dt>Pattern</dt><dd id="affixPattern"></dd></div></dl>
+        <div class="example-sentence"><p id="affixSentence" lang="fil"></p><span id="affixTranslation"></span><button class="audio-button" type="button" data-audio-target="affixSentence"><span aria-hidden="true">◖</span> Hear it</button></div>
+      </article>
+    </section>
+
+    <section class="tool-section how-to-section">
+      <div class="section-heading"><p class="section-number">How to read the tree</p><h2>Meaning decides the branch.</h2></div>
+      <div class="tree-legend">
+        <article><span class="legend-dot actor-dot"></span><h3>Actor route</h3><p>The doer or their activity is in focus. Common paths include <em>-um-</em> and <em>mag-</em>.</p></article>
+        <article><span class="legend-dot object-dot"></span><h3>Object route</h3><p>The affected thing is in focus. A familiar route is <em>-in</em> or <em>-hin</em>.</p></article>
+        <article><span class="legend-dot location-dot"></span><h3>Other roles</h3><p>Routes such as <em>-an</em> and <em>i-</em> can foreground a place, beneficiary, or thing used.</p></article>
+      </div>
+    </section>
+  </main>
+  <footer><div class="footer-brand"><span class="brand-mark" aria-hidden="true">T</span><div><strong>Tukoy</strong><small>A practical Tagalog grammar guide</small></div></div><p>Examples are learner-friendly starting points. Check new root-plus-affix combinations with a reliable dictionary or proficient speaker.</p></footer>
+  <script src="features.js"></script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A practical Tagalog phrasebook organized around real-life situations.">
+  <meta name="theme-color" content="#183153">
+  <title>Situation Phrasebook · Tukoy</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="tool-page">
+  <a class="skip-link" href="#main">Skip to the phrasebook</a>
+  <header class="site-header">
+    <a class="brand" href="index.html" aria-label="Tukoy home"><span class="brand-mark" aria-hidden="true">T</span><span><strong>Tukoy</strong><small>Tagalog sentence guide</small></span></a>
+    <nav aria-label="Main navigation"><a href="index.html">Course</a><a href="affix-explorer.html">Affix explorer</a><a href="confusion-pairs.html">Confusion pairs</a><a href="phrasebook.html" aria-current="page">Phrasebook</a></nav>
+  </header>
+  <main id="main">
+    <section class="tool-hero phrasebook-hero">
+      <p class="eyebrow">Use language in the wild</p>
+      <h1>Say the thing<br><em>you mean.</em></h1>
+      <p>Not a list of isolated words: practical lines for places and moments you will actually navigate. Choose a setting, listen, and make each phrase yours.</p>
+    </section>
+    <section class="phrasebook-layout" aria-label="Situation-based Tagalog phrasebook">
+      <aside class="scenario-list"><p class="control-label">Choose a situation</p><div id="scenarioTabs" role="tablist" aria-label="Phrasebook situations"></div></aside>
+      <section class="scenario-detail" aria-live="polite"><div class="scenario-heading"><p class="section-number" id="scenarioLabel"></p><h2 id="scenarioTitle"></h2><p id="scenarioIntro"></p></div><div class="phrase-list" id="phraseList"></div></section>
+    </section>
+  </main>
+  <footer><div class="footer-brand"><span class="brand-mark" aria-hidden="true">T</span><div><strong>Tukoy</strong><small>A practical Tagalog grammar guide</small></div></div><p>Tap Hear it for browser-based pronunciation. Voices vary by device and browser.</p></footer>
+  <script src="features.js"></script>
+</body>
+</html>

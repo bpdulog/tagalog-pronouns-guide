@@ -18,6 +18,22 @@ is designed to publish directly with GitHub Pages.
 - Follow predicate-first word order while placing pronouns and particles.
 - Work through a four-level learning path and a ten-prompt sentence studio.
 - Check understanding with a twenty-question cumulative practice round.
+- Explore three standalone, shareable tools: an interactive affix tree, concise
+  confusion-pair explainers, and a situation-based phrasebook.
+
+## Standalone tools
+
+- `affix-explorer.html` lets learners start with `kain`, `sulat`, or `luto`,
+  choose an affix path, and see its focus, pattern, sentence, translation, and
+  browser-based pronunciation.
+- `confusion-pairs.html` covers `po` vs. `ho`, `hindi` vs. `hindi naman`, `ng`
+  vs. `nag-`, `sa` vs. `nasa`, and `kasi` vs. `dahil` through concise rules and
+  contextual examples.
+- `phrasebook.html` organizes useful language around the palengke, a landlord,
+  a jeepney, a family gathering, and a bank.
+
+The Hear it buttons use the browser's installed speech voice with `fil-PH`
+selected. Availability and pronunciation quality therefore vary by device.
 
 The interactive single-choice controls support arrow, Home, and End keys, and
 the lesson navigation remains available on small screens.
