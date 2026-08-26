@@ -30,10 +30,13 @@ is designed to publish directly with GitHub Pages.
   vs. `nag-`, `sa` vs. `nasa`, and `kasi` vs. `dahil` through concise rules and
   contextual examples.
 - `phrasebook.html` organizes useful language around the palengke, a landlord,
-  a jeepney, a family gathering, and a bank.
+  a jeepney, a family gathering, a bank, a restaurant, a clinic or pharmacy,
+  a taxi or ride-hail, directions, and work or school. It contains 500
+  searchable phrases (50 in each setting) and deliberately has no audio.
 
-The Hear it buttons use the browser's installed speech voice with `fil-PH`
-selected. Availability and pronunciation quality therefore vary by device.
+Hear it buttons in the affix explorer and confusion-pair examples use the
+browser's installed speech voice with `fil-PH` selected. Availability and
+pronunciation quality therefore vary by device.
 
 The interactive single-choice controls support arrow, Home, and End keys, and
 the lesson navigation remains available on small screens.

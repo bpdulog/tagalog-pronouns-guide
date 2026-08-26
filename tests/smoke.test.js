@@ -73,5 +73,9 @@ for (const scenario of ["At the palengke", "With a landlord", "In a jeepney", "A
 }
 assert.match(featureJs, /speechSynthesis/, "browser audio playback is missing");
 assert.match(featureJs, /audio-button/, "interactive pronunciation buttons are missing");
+assert.match(phrasebookHtml, /500 practical lines/, "phrasebook must describe its 500-phrase scope");
+assert.doesNotMatch(phrasebookHtml, /audio-button|Hear it/, "phrasebook audio controls should be absent");
+assert.strictEqual((featureJs.match(/phrases: phraseSet/g) || []).length, 10, "phrasebook should include ten situations");
+assert.match(featureJs, /slice\(0, 50\)/, "each phrasebook situation should provide fifty phrases");
 
 console.log("Static guide smoke checks passed.");
