@@ -73,10 +73,12 @@ for (const scenario of ["At the palengke", "With a landlord", "In a jeepney", "A
 }
 assert.match(featureJs, /speechSynthesis/, "browser audio playback is missing");
 assert.match(featureJs, /audio-button/, "interactive pronunciation buttons are missing");
-assert.match(phrasebookHtml, /1,200 practical lines/, "phrasebook must describe its 1,200-phrase scope");
+assert.match(phrasebookHtml, /nearly 2,500 practical lines/, "phrasebook must describe its expanded phrase scope");
 assert.doesNotMatch(phrasebookHtml, /audio-button|Hear it/, "phrasebook audio controls should be absent");
-assert.strictEqual((featureJs.match(/phrases: phraseSet/g) || []).length, 24, "phrasebook should include twenty-four situations");
-assert.match(featureJs, /slice\(0, 50\)/, "each phrasebook situation should provide fifty phrases");
+assert.strictEqual((featureJs.match(/phrases: phraseSet/g) || []).length, 64, "phrasebook should include sixty-four template-backed situations");
+assert.match(featureJs, /expandedPhrasebookScenarios/, "phrasebook should include the expanded situation collection");
+assert.match(featureJs, /morePhrasebookScenarios/, "phrasebook should include the second expanded situation collection");
+assert.match(featureJs, /slice\(0, 50\)/, "template-generated phrase sets should cap at fifty phrases");
 for (const survival of ["Opo.", "Walang anuman po.", "Marunong po ba kayong mag-Ingles?", "Ilang beses po sa isang araw?", "Hindi po siya humihinga.", "Hindi po ako kumakain ng baboy.", "Anong oras na po?", "Hindi ko po kayo marinig."]) {
   assert.ok(featureJs.includes(survival), `missing critical phrase: ${survival}`);
 }
