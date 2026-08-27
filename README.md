@@ -29,9 +29,12 @@ is designed to publish directly with GitHub Pages.
 - `confusion-pairs.html` covers `po` vs. `ho`, `hindi` vs. `hindi naman`, `ng`
   vs. `nag-`, `sa` vs. `nasa`, and `kasi` vs. `dahil` through concise rules and
   contextual examples.
-- `phrasebook.html` organizes useful language around the palengke, a landlord,
-  a jeepney, a family gathering, a bank, a restaurant, a clinic or pharmacy,
-  a taxi or ride-hail, directions, and work or school. It contains 500
+- `phrasebook.html` organizes useful language around twenty-four practical
+  settings. The first three cover the ground every other setting depends on:
+  first words and repair phrases, numbers and money and time, and the short
+  replies you give or hear back. The rest run from the palengke and a jeepney
+  to home life, government paperwork, deliveries, utilities, phone calls,
+  emergencies, weather, personal care, and caregiving. It contains 1,200
   searchable phrases (50 in each setting) and deliberately has no audio.
 
 Hear it buttons in the affix explorer and confusion-pair examples use the

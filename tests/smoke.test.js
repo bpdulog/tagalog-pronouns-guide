@@ -68,14 +68,17 @@ assert.match(phrasebookHtml, /id="scenarioTabs"/, "phrasebook needs situation se
 for (const pair of ["po vs. ho", "hindi vs. hindi naman", "ng vs. nag-", "sa vs. nasa", "kasi vs. dahil"]) {
   assert.ok(featureJs.includes(pair), `missing confusion pair: ${pair}`);
 }
-for (const scenario of ["At the palengke", "With a landlord", "In a jeepney", "At a family gathering", "At the bank"]) {
+for (const scenario of ["At the palengke", "With a landlord", "In a jeepney", "At a family gathering", "At the bank", "Everyday conversation", "Government and paperwork", "Emergencies and safety", "Weather and disasters", "Deliveries and online shopping", "Mobile, GCash, and payments", "First words and getting by", "Numbers, money, and time", "On the phone"]) {
   assert.ok(featureJs.includes(scenario), `missing phrasebook scenario: ${scenario}`);
 }
 assert.match(featureJs, /speechSynthesis/, "browser audio playback is missing");
 assert.match(featureJs, /audio-button/, "interactive pronunciation buttons are missing");
-assert.match(phrasebookHtml, /500 practical lines/, "phrasebook must describe its 500-phrase scope");
+assert.match(phrasebookHtml, /1,200 practical lines/, "phrasebook must describe its 1,200-phrase scope");
 assert.doesNotMatch(phrasebookHtml, /audio-button|Hear it/, "phrasebook audio controls should be absent");
-assert.strictEqual((featureJs.match(/phrases: phraseSet/g) || []).length, 10, "phrasebook should include ten situations");
+assert.strictEqual((featureJs.match(/phrases: phraseSet/g) || []).length, 24, "phrasebook should include twenty-four situations");
 assert.match(featureJs, /slice\(0, 50\)/, "each phrasebook situation should provide fifty phrases");
+for (const survival of ["Opo.", "Walang anuman po.", "Marunong po ba kayong mag-Ingles?", "Ilang beses po sa isang araw?", "Hindi po siya humihinga.", "Hindi po ako kumakain ng baboy.", "Anong oras na po?", "Hindi ko po kayo marinig."]) {
+  assert.ok(featureJs.includes(survival), `missing critical phrase: ${survival}`);
+}
 
 console.log("Static guide smoke checks passed.");
